@@ -4,7 +4,7 @@ window.onload = () => {
   document.getElementById("role").value = "";
 };
 
-// LOGIN VALIDATION
+
 function validateLogin() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -28,22 +28,22 @@ function validateLogin() {
     return false;
   }
 
-  // Store user data
-  const username = email.split('@')[0]; // Use part of email as username
+ 
+  const username = email.split('@')[0]; 
   localStorage.setItem("username", username);
   localStorage.setItem("role", role);
   sessionStorage.setItem("userRole", role);
 
   showToast("Login successful ✅");
 
-  // Check for redirect URL after login
+  
   const redirectTo = sessionStorage.getItem('redirectAfterLogin');
   
   setTimeout(() => {
     if (role === "admin") {
       window.location.href = "admin.html";
     } else if (redirectTo) {
-      // Remove the redirect URL from storage
+      
       sessionStorage.removeItem('redirectAfterLogin');
       window.location.href = redirectTo;
     } else {
@@ -54,7 +54,7 @@ function validateLogin() {
   return false;
 }
 
-// PASSWORD EYE TOGGLE
+
 const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("password");
 
@@ -64,7 +64,7 @@ togglePassword.addEventListener("click", () => {
   togglePassword.classList.toggle("fa-eye-slash");
 });
 
-// TOAST
+
 function showToast(message) {
   const toast = document.getElementById("toast");
   toast.innerText = message;

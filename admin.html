@@ -11,7 +11,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
 
-  <!-- ADMIN ACCESS CHECK -->
+  
   <script>
     const role = sessionStorage.getItem("userRole");
     if (role !== "admin") {
@@ -26,7 +26,7 @@
     <h1>Admin Dashboard</h1>
     <p>Manage orders and track status</p>
 
-    <!-- Logout icon -->
+    
     <a href="#" onclick="logout()" title="Logout" class="logout-icon">
       <i class="fa-solid fa-right-from-bracket"></i>
     </a>
@@ -46,7 +46,7 @@
       </div>
 
       <div id="orders-container" class="orders-grid">
-        <!-- Orders will be dynamically inserted here -->
+        
       </div>
 
       <p id="no-orders" class="no-orders" style="display: none;">

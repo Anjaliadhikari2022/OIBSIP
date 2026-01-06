@@ -15,24 +15,24 @@ class PizzaSlider {
   }
   
   init() {
-    // Set initial active slide
+    
     this.updateActiveSlide(0);
     
-    // Initialize dots if they exist
+   
     if (this.dots.length > 0) {
       this.dots.forEach((dot, index) => {
         dot.addEventListener('click', () => this.goToSlide(index));
       });
     }
     
-    // Initialize touch events for mobile
+   
     this.initTouchEvents();
     
-    // Start autoplay if enabled
+    
     if (this.autoPlay && this.totalSlides > 1) {
       this.startAutoPlay();
       
-      // Pause autoplay on hover
+      
       this.container.addEventListener('mouseenter', () => {
         this.pauseAutoPlay();
       });
@@ -42,28 +42,28 @@ class PizzaSlider {
       });
     }
     
-    // Handle window resize
+   
     window.addEventListener('resize', this.handleResize.bind(this));
   }
   
   updateActiveSlide(index) {
-    // Update current slide index
+    
     this.currentSlide = (index + this.totalSlides) % this.totalSlides;
     
-    // Update active class on slides
+    
     this.slides.forEach((slide, i) => {
       slide.style.opacity = i === this.currentSlide ? '1' : '0.5';
       slide.style.transform = i === this.currentSlide ? 'scale(1.02)' : 'scale(0.98)';
     });
     
-    // Update active dot
+    
     if (this.dots.length > 0) {
       this.dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === this.currentSlide);
       });
     }
     
-    // Scroll to active slide
+    
     if (this.slides[this.currentSlide]) {
       this.slides[this.currentSlide].scrollIntoView({
         behavior: 'smooth',
@@ -113,31 +113,29 @@ class PizzaSlider {
       this.handleSwipe();
     }, { passive: true });
     
-    // Prevent default touchmove to avoid scrolling while swiping
+    
     this.container.addEventListener('touchmove', (e) => {
       e.preventDefault();
     }, { passive: false });
   }
   
   handleSwipe() {
-    const swipeThreshold = 50; // Minimum distance for a swipe to be detected
+    const swipeThreshold = 50; 
     const difference = touchStartX - touchEndX;
     
     if (Math.abs(difference) < swipeThreshold) return;
     
     if (difference > 0) {
-      // Swipe left - go to next slide
+      
       this.nextSlide();
     } else {
-      // Swipe right - go to previous slide
+      
       this.prevSlide();
     }
   }
   
   handleResize() {
-    // Add any responsive behavior here
-    // For example, you might want to adjust the number of visible slides
-    // based on the viewport width
+    
   }
 }
 
@@ -161,9 +159,9 @@ function addPizzaToCart(name, price) {
   showToast(`${name} added to cart!`, 'success');
 }
 
-// Initialize the slider when the DOM is fully loaded
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Only initialize if slider exists on the page
+  
   const sliderElement = document.getElementById('pizza-slider');
   if (!sliderElement) return;
   
@@ -172,12 +170,12 @@ document.addEventListener('DOMContentLoaded', () => {
     interval: 5000
   });
   
-  // Add to cart functionality
+  
   document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
       
-      // Check if user is logged in
+      
       if (sessionStorage.getItem('userRole') !== 'user') {
         sessionStorage.setItem('redirectAfterLogin', 'index.html');
         showToast('Please login to add items to cart', 'warning');
@@ -191,15 +189,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const pizzaName = pizzaCard.querySelector('.pizza-title').textContent;
       const pizzaPrice = pizzaCard.querySelector('.pizza-price').textContent;
       
-      // Add to cart
+      
       addPizzaToCart(pizzaName, pizzaPrice);
       
-      // Add animation to button
+      
       const addButton = e.target.closest('.add-to-cart');
       addButton.innerHTML = '<i class="fas fa-check"></i> Added';
       addButton.style.backgroundColor = '#27ae60';
       
-      // Reset button after animation
+     
       setTimeout(() => {
         addButton.innerHTML = '<i class="fas fa-plus"></i> Add to Cart';
         addButton.style.backgroundColor = '';

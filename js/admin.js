@@ -1,29 +1,29 @@
-// Admin state
+
 let allOrders = [];
 
-// Redirect non-admin users
+
 if (sessionStorage.getItem("userRole") !== "admin") {
   window.location.href = "login.html";
 }
 
-// Initialize admin page
+
 document.addEventListener('DOMContentLoaded', () => {
   loadOrders();
-  // Refresh orders every 30 seconds
+
   setInterval(loadOrders, 30000);
 });
 
-// Load orders from localStorage or initialize empty array
+
 function getOrders() {
   return JSON.parse(localStorage.getItem('pizzaOrders') || '[]');
 }
 
-// Save orders to localStorage
+
 function saveOrders(orders) {
   localStorage.setItem('pizzaOrders', JSON.stringify(orders));
 }
 
-// Load and display orders
+
 function loadOrders() {
   const loadingEl = document.getElementById('orders-loading');
   const ordersContainer = document.getElementById('orders-container');
@@ -34,7 +34,7 @@ function loadOrders() {
   noOrdersEl.style.display = 'none';
 
   try {
-    // Simulate API call with a small delay
+    
     setTimeout(() => {
       const orders = getOrders();
       allOrders = orders;
@@ -57,7 +57,7 @@ function loadOrders() {
   }
 }
 
-// Create order card element
+
 function createOrderElement(order, index) {
   const orderEl = document.createElement('div');
   orderEl.className = 'order-card';
@@ -67,7 +67,7 @@ function createOrderElement(order, index) {
     `${item.name} (${item.quantity} x ₹${item.price})`
   ).join('<br>');
   
-  // Use the stored total if available, otherwise calculate it
+  
   const subtotal = order.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const deliveryFee = order.deliveryFee || 0;
   const total = order.total || (subtotal + deliveryFee);
@@ -101,7 +101,7 @@ function createOrderElement(order, index) {
   return orderEl;
 }
 
-// Update order status
+
 async function updateStatus(orderId) {
   try {
     const orders = getOrders();
@@ -115,7 +115,7 @@ async function updateStatus(orderId) {
     orders[orderIndex].status = 'delivered';
     saveOrders(orders);
     
-    // Update the UI
+    
     const orderEl = document.querySelector(`.order-card[data-id="${orderId}"]`);
     if (orderEl) {
       const statusEl = orderEl.querySelector('.status');
@@ -139,13 +139,13 @@ async function updateStatus(orderId) {
   }
 }
 
-// Logout
+
 function logout() {
   sessionStorage.clear();
   window.location.href = 'login.html';
 }
 
-// Toast notification
+
 function showToast(message) {
   const toast = document.getElementById('toast');
   if (!toast) return;

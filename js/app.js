@@ -1,4 +1,4 @@
-/* ================= CART HELPERS ================= */
+
 function getCart() {
   return JSON.parse(sessionStorage.getItem("cart")) || [];
 }
@@ -7,17 +7,17 @@ function saveCart(cart) {
   sessionStorage.setItem("cart", JSON.stringify(cart));
 }
 
-/* ================= LOGIN CHECK ================= */
+
 function isLoggedIn() {
   return !!sessionStorage.getItem("userRole");
 }
 
-/* ================= ADD ITEM ================= */
+
 function addToCart(name, price) {
   if (!isLoggedIn()) {
     showToast("Please login to add items to cart 🔒");
     setTimeout(() => {
-      // Store the current page to redirect back after login
+      
       sessionStorage.setItem('redirectAfterLogin', window.location.pathname);
       window.location.href = "login.html";
     }, 1200);
@@ -37,10 +37,10 @@ function addToCart(name, price) {
   updateCartCount();
   updateButtons();
   showToast(`${name} added to cart `);
-  return false; // Prevent default form submission
+  return false; 
 }
 
-/* ================= ADD ITEM (for menu page) ================= */
+
 function addItem(name, price = 0) {
   if (!isLoggedIn()) {
     showToast("Please login to add items to cart");
@@ -58,7 +58,7 @@ function addItem(name, price = 0) {
       name, 
       price: Number(price) || 0, 
       qty: 1,
-      quantity: 1 // Adding both qty and quantity for compatibility
+      quantity: 1 
     });
   }
 
@@ -66,10 +66,10 @@ function addItem(name, price = 0) {
   updateCartCount();
   updateButtons();
   showToast(`${name} added to cart `);
-  return false; // Prevent default form submission
+  return false; 
 }
 
-/* ================= CHANGE QTY ================= */
+
 function changeQty(name, change) {
   let cart = getCart();
   const item = cart.find(p => p.name === name);
@@ -86,7 +86,7 @@ function changeQty(name, change) {
   updateButtons();
 }
 
-/* ================= BUTTON UI ================= */
+
 function updateButtons() {
   const cart = getCart();
 
@@ -109,7 +109,7 @@ function updateButtons() {
   });
 }
 
-/* ================= CART COUNT ================= */
+
 function updateCartCount() {
   const cart = getCart();
   const total = cart.reduce((sum, item) => {
@@ -121,7 +121,7 @@ function updateCartCount() {
   if (el) el.textContent = total > 0 ? total : '0';
 }
 
-/* ================= NAVBAR ================= */
+
 function controlNavbar() {
   const role = sessionStorage.getItem("userRole");
   const username = localStorage.getItem("username") || "User";
@@ -140,7 +140,7 @@ function controlNavbar() {
     if (cartNav) cartNav.style.display = "none";
     if (userNav) userNav.style.display = "none";
     if (adminNav) adminNav.style.display = "none";
-    if (cartNav) cartNav.style.display = "block"; // keep visible
+    if (cartNav) cartNav.style.display = "block"; 
   } else {
     loginNav.style.display = "none";
     if (logoutNav) logoutNav.style.display = "block";
@@ -156,13 +156,13 @@ function controlNavbar() {
   }
 }
 
-/* ================= LOGOUT ================= */
+
 function logout() {
   sessionStorage.clear();
   window.location.href = "login.html";
 }
 
-/* ================= TOAST ================= */
+
 function showToast(msg) {
   const toast = document.getElementById("toast");
   if (!toast) return;
@@ -172,22 +172,22 @@ function showToast(msg) {
   setTimeout(() => toast.classList.remove("show"), 2000);
 }
 
-/* ================= CHECK AUTH ON PROTECTED PAGES ================= */
+
 function checkAuthForProtectedPages() {
     const protectedPages = ['cart.html', 'checkout.html', 'profile.html', 'admin.html'];
     const currentPage = window.location.pathname.split('/').pop();
     
     if (protectedPages.includes(currentPage) && !isLoggedIn()) {
-        // Just show a message, don't redirect
+        
         showToast("Please login to access this page");
-        // Store the intended page for after login
+        
         sessionStorage.setItem('redirectAfterLogin', currentPage);
         return false;
     }
     return true;
 }
 
-/* ================= HANDLE REDIRECT AFTER LOGIN ================= */
+
 function handlePostLoginRedirect() {
   const redirectTo = sessionStorage.getItem('redirectAfterLogin');
   if (redirectTo && isLoggedIn()) {
@@ -196,13 +196,13 @@ function handlePostLoginRedirect() {
   }
 }
 
-/* ================= ON LOAD ================= */
+
 document.addEventListener("DOMContentLoaded", () => {
     updateCartCount();
     updateButtons();
     controlNavbar();
     
-    // Only check authentication for protected pages
+    
     const currentPage = window.location.pathname.split('/').pop();
     const protectedPages = ['cart.html', 'checkout.html', 'profile.html', 'admin.html'];
     
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
         checkAuthForProtectedPages();
     }
     
-    // Handle redirect after login
+    
     if (window.location.pathname.includes('login.html') && isLoggedIn()) {
         handlePostLoginRedirect();
     }

@@ -1,6 +1,6 @@
-// Cart functionality
 
-// Make cart functions globally available
+
+
 window.cartFunctions = {
     getCart: function() {
         const cart = sessionStorage.getItem('cart');
@@ -27,29 +27,29 @@ window.cartFunctions = {
     }
 };
 
-// Initialize the cart when the page loads
+
 document.addEventListener('DOMContentLoaded', () => {
   const userRole = sessionStorage.getItem("userRole");
   
   if (userRole !== "user") {
-    // Show a message but don't redirect automatically
+    
     showToast('Please login to view your cart', 'info');
     sessionStorage.setItem('redirectAfterLogin', 'cart.html');
   }
   
-  // Always render the cart (it will be empty if not logged in)
+  
   renderCart();
   window.cartFunctions.updateCartCount();
 });
 
-// Calculate the total price of items in the cart
+
 function calculateCartTotal(cart) {
   return cart.reduce((total, item) => {
     return total + (item.price * (item.quantity || 1));
   }, 0);
 }
 
-// Update the cart summary with current totals
+
 function updateCartSummary(cart) {
   const cartSummary = document.getElementById('cart-summary');
   const subtotal = calculateCartTotal(cart);
@@ -61,14 +61,14 @@ function updateCartSummary(cart) {
     document.getElementById('cart-total').textContent = `₹${total}`;
   }
   
-  // Update checkout button state
+  
   const checkoutBtn = document.getElementById('checkout-btn');
   if (checkoutBtn) {
     checkoutBtn.disabled = cart.length === 0;
   }
 }
 
-// Render the cart items
+
 function renderCart() {
   const cart = getCart();
   const cartContainer = document.getElementById('cart-container');
@@ -115,7 +115,7 @@ function renderCart() {
   updateCartSummary(cart);
 }
 
-// Increase item quantity
+
 function increaseQty(index, event) {
   if (event) event.stopPropagation();
   
@@ -128,7 +128,7 @@ function increaseQty(index, event) {
   }
 }
 
-// Decrease item quantity
+
 function decreaseQty(index, event) {
   if (event) event.stopPropagation();
   
@@ -137,12 +137,12 @@ function decreaseQty(index, event) {
     if (cart[index].quantity > 1) {
       cart[index].quantity -= 1;
     } else {
-      // If quantity is 1, remove the item
+      
       if (confirm('Remove this item from your cart?')) {
         cart.splice(index, 1);
         showToast('Item removed from cart', 'success');
       } else {
-        return; // User cancelled
+        return; 
       }
     }
     
@@ -156,7 +156,7 @@ function decreaseQty(index, event) {
   }
 }
 
-// Remove item from cart
+
 function removeItem(index, event) {
   if (event) event.stopPropagation();
   
@@ -176,7 +176,7 @@ function removeItem(index, event) {
   }
 }
 
-// Proceed to checkout
+
 function proceedToCheckout() {
   const cart = getCart();
   
@@ -185,7 +185,7 @@ function proceedToCheckout() {
     return;
   }
   
-  // Ensure all items have the correct structure
+  
   const validatedCart = cart.map(item => ({
     name: item.name,
     price: Number(item.price) || 0,
@@ -193,10 +193,10 @@ function proceedToCheckout() {
     qty: Number(item.qty || item.quantity || 1)
   }));
   
-  // Save the validated cart to session storage
+  
   sessionStorage.setItem('checkoutCart', JSON.stringify(validatedCart));
   
-  // Check if user is logged in
+  
   if (sessionStorage.getItem("userRole") !== "user") {
     sessionStorage.setItem('redirectAfterLogin', 'checkout.html');
     showToast('Please login to proceed to checkout', 'warning');
@@ -208,23 +208,23 @@ function proceedToCheckout() {
   }
 }
 
-// Show toast notification
+
 function showToast(message, type = 'info') {
   const toast = document.getElementById('toast');
   if (!toast) return;
   
-  // Set message and type
+  
   toast.textContent = message;
   
-  // Remove all type classes
+  
   toast.classList.remove('success', 'error', 'warning', 'info');
   
-  // Add the specified type class
+  
   if (type) {
     toast.classList.add(type);
   }
   
-  // Add icon based on type
+  
   let icon = 'info-circle';
   switch(type) {
     case 'success':
@@ -238,36 +238,36 @@ function showToast(message, type = 'info') {
       break;
   }
   
-  // Add icon to toast
+  
   toast.innerHTML = `<i class="fas fa-${icon}"></i> ${message}`;
   
-  // Show toast with animation
+  
   toast.classList.add('show');
   
-  // Hide after delay
+  
   setTimeout(() => {
     toast.classList.remove('show');
   }, 3000);
 }
 
-// Get cart from sessionStorage
+
 function getCart() {
   return JSON.parse(sessionStorage.getItem('cart') || '[]');
 }
 
-// Save cart to sessionStorage
+
 function saveCart(cart) {
   sessionStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// Update cart count in navigation
+
 function updateCartCount() {
   const cart = getCart();
   const count = cart.reduce((total, item) => total + (item.quantity || 1), 0);
   const countEl = document.getElementById('cart-count');
   if (countEl) countEl.textContent = count;
   
-  // Update cart summary visibility
+  
   const cartSummary = document.getElementById('cart-summary');
   const emptyCartMsg = document.getElementById('empty-cart');
   
