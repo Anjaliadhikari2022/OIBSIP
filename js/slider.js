@@ -139,7 +139,7 @@ class PizzaSlider {
   }
 }
 
-// Add to cart functionality
+
 function addPizzaToCart(name, price) {
   const cart = window.cartFunctions.getCart();
   const priceValue = parseFloat(price.replace(/[^0-9.]/g, ''));
