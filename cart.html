@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart | Pizza Delivery</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+
+<body>
+
+<header>
+  <h1>Your Cart</h1>
+  <p>Review your selected pizzas</p>
+
+  <a href="#" onclick="logout()" class="logout-icon" title="Logout">
+    <i class="fa-solid fa-right-from-bracket"></i>
+  </a>
+</header>
+
+<main>
+  <div class="cart-section">
+    <h2>Your Order</h2>
+    
+    <div class="cart-layout">
+      <div>
+        <div id="cart-container" class="cart-container"></div>
+        
+        <div id="empty-cart" class="empty-cart-message" style="display: none;">
+          <i class="fas fa-shopping-cart empty-cart-icon"></i>
+          <h3>Your cart is empty</h3>
+          <p>Looks like you haven't added anything to your cart yet. Let's get you some delicious pizza!</p>
+          <a href="menu.html" class="btn">
+            <i class="fas fa-pizza-slice"></i> Explore Menu
+          </a>
+        </div>
+      </div>
+      
+      <div id="cart-summary" class="cart-summary" style="display: none;">
+        <h3>Order Summary</h3>
+        
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">₹0</span>
+        </div>
+        
+        <div class="summary-row">
+          <span>Delivery Fee</span>
+          <span>₹40</span>
+        </div>
+        
+        <div class="summary-row">
+          <span>Taxes & Charges</span>
+          <span>₹0</span>
+        </div>
+        
+        <div class="summary-row total">
+          <span>Total Amount</span>
+          <span id="cart-total">₹40</span>
+        </div>
+        
+        <button id="checkout-btn" class="checkout-btn" onclick="proceedToCheckout()">
+          <i class="fas fa-credit-card"></i> Proceed to Checkout
+        </button>
+        
+        <p class="secure-checkout">
+          <i class="fas fa-lock"></i> Secure Checkout
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Pizza Delivery. All rights reserved.</p>
+</footer>
+
+<div id="toast"></div>
+<script src="js/app.js"></script>
+<script src="js/cart.js"></script>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmation | Pizza Delivery</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .confirmation-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      text-align: center;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .success-icon {
+      font-size: 5rem;
+      color: #4CAF50;
+      margin: 1rem 0;
+    }
+    
+    .order-details {
+      text-align: left;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+    
+    .order-details p {
+      margin: 0.8rem 0;
+      color: #555;
+    }
+    
+    .order-details strong {
+      color: #333;
+    }
+    
+    .action-buttons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background: #e63946;
+      color: white;
+    }
+    
+    .btn-secondary {
+      background: #f1f1f1;
+      color: #333;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    @media (max-width: 600px) {
+      .confirmation-container {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <h1 class="logo">🍕 Pizza Delivery</h1>
+  </header>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li id="nav-cart">
+        <a href="cart.html">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count">0</span>
+        </a>
+      </li>
+      <li id="nav-login"><a href="login.html">Login</a></li>
+      <li id="nav-logout" style="display:none;">
+        <a href="#" onclick="logout()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="confirmation-container">
+    <div class="success-icon">
+      <i class="fas fa-check-circle"></i>
+    </div>
+    
+    <h1>Order Confirmed!</h1>
+    <p>Thank you for your order. We've received it and are preparing your delicious pizza!</p>
+    
+    <div class="order-details">
+      <h3>Order Details</h3>
+      <p><strong>Order ID:</strong> <span id="order-id"></span></p>
+      <p><strong>Estimated Delivery:</strong> <span id="delivery-time"></span></p>
+      <p><strong>Status:</strong> <span class="status">Preparing your order</span></p>
+    </div>
+    
+    <div class="order-actions">
+      <p>You'll receive an order confirmation email shortly.</p>
+      <p>Need help? Call us at <strong>+91 9997265003</strong></p>
+    </div>
+    
+    <div class="action-buttons">
+      <a href="menu.html" class="btn btn-primary">
+        <i class="fas fa-pizza-slice"></i> Order Again
+      </a>
+      <a href="index.html" class="btn btn-secondary">
+        <i class="fas fa-home"></i> Back to Home
+      </a>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <p>&copy; 2025 Pizza Delivery. All rights reserved.</p>
+  </footer>
+
+  <script src="js/confirmation.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

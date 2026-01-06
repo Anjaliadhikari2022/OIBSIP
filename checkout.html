@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | Pizza Delivery</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header class="main-header">
+    <h1 class="logo">🍕 Pizza Delivery</h1>
+  </header>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li id="nav-cart">
+        <a href="cart.html">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count">0</span>
+          <span class="view-cart">View Cart</span>
+        </a>
+      </li>
+      <li id="nav-login"><a href="login.html">Login</a></li>
+      <li id="nav-logout" style="display:none;">
+        <a href="#" onclick="logout()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="checkout-page">
+    <div class="container">
+      <div class="checkout-header">
+        <h1><i class="fas fa-shopping-bag"></i> Complete Your Order</h1>
+        <div class="checkout-steps">
+          <div class="step active">
+            <span class="step-number">1</span>
+            <span class="step-text">Delivery</span>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <span class="step-text">Payment</span>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <span class="step-text">Confirmation</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="checkout-layout">
+        <!-- Left Column - Delivery Form -->
+        <div class="checkout-form-container">
+          <section class="checkout-section">
+            <h2><i class="fas fa-truck"></i> Delivery Information</h2>
+            
+            <form id="delivery-form" class="checkout-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required />
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="phone">Phone Number <span class="required">*</span></label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required />
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" id="email" name="email" placeholder="your@email.com" />
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="address">Delivery Address <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <textarea id="address" name="address" rows="3" placeholder="Enter your full delivery address" required></textarea>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="instructions">Delivery Instructions (Optional)</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-clipboard"></i>
+                  <textarea id="instructions" name="instructions" rows="2" placeholder="e.g., Call on arrival, Leave at door, etc."></textarea>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="section-label">
+                  <i class="fas fa-credit-card"></i> Payment Method
+                </label>
+                <div class="payment-options">
+                  <label class="payment-option">
+                    <input type="radio" name="payment" value="cod" checked />
+                    <div class="payment-content">
+                      <div class="payment-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                      </div>
+                      <div class="payment-details">
+                        <span class="payment-title">Cash on Delivery</span>
+                        <span class="payment-desc">Pay when you receive your order</span>
+                      </div>
+                      <i class="fas fa-check-circle checkmark"></i>
+                    </div>
+                  </label>
+                  
+                  <label class="payment-option disabled">
+                    <input type="radio" name="payment" value="card" disabled />
+                    <div class="payment-content">
+                      <div class="payment-icon">
+                        <i class="far fa-credit-card"></i>
+                      </div>
+                      <div class="payment-details">
+                        <span class="payment-title">Credit/Debit Card</span>
+                        <span class="payment-desc">Pay with your card (Coming Soon)</span>
+                      </div>
+                      <i class="fas fa-lock lock-icon"></i>
+                    </div>
+                  </label>
+                  
+                  <label class="payment-option disabled">
+                    <input type="radio" name="payment" value="upi" disabled />
+                    <div class="payment-content">
+                      <div class="payment-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                      </div>
+                      <div class="payment-details">
+                        <span class="payment-title">UPI Payment</span>
+                        <span class="payment-desc">Pay via UPI apps (Coming Soon)</span>
+                      </div>
+                      <i class="fas fa-lock lock-icon"></i>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              
+              <div class="form-actions">
+                <a href="cart.html" class="btn btn-outline">
+                  <i class="fas fa-arrow-left"></i> Back to Cart
+                </a>
+                <button type="submit" class="btn btn-primary">
+                  Place Order <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+        
+        <!-- Right Column - Order Summary -->
+        <div class="order-summary-container">
+          <div class="order-summary-sticky">
+            <section class="order-summary">
+              <h2><i class="fas fa-receipt"></i> Order Summary</h2>
+              
+              <div id="order-items" class="order-items">
+                <!-- Order items will be dynamically inserted here -->
+                <div class="empty-cart-message">
+                  <i class="fas fa-shopping-cart"></i>
+                  <p>Your cart is empty</p>
+                </div>
+              </div>
+              
+              <div class="order-totals">
+                <div class="summary-row">
+                  <span>Subtotal</span>
+                  <span id="subtotal">₹0</span>
+                </div>
+                <div class="summary-row">
+                  <span>Delivery Fee</span>
+                  <span id="delivery-fee">₹40</span>
+                </div>
+                <div class="summary-row">
+                  <span>Taxes & Charges</span>
+                  <span>₹0</span>
+                </div>
+                <div class="summary-row total">
+                  <span>Total Amount</span>
+                  <span id="total">₹40</span>
+                </div>
+              </div>
+              
+              <div class="secure-checkout">
+                <i class="fas fa-lock"></i>
+                <span>Secure Checkout</span>
+                <div class="payment-methods">
+                  <i class="fab fa-cc-visa"></i>
+                  <i class="fab fa-cc-mastercard"></i>
+                  <i class="fab fa-cc-amex"></i>
+                  <i class="fab fa-cc-paypal"></i>
+                </div>
+              </div>
+            </section>
+            
+            <div class="customer-support">
+              <h3><i class="fas fa-headset"></i> Need Help?</h3>
+              <p>Our customer support is available 24/7 to assist you with your order.</p>
+              <a href="tel:+919997265003" class="support-phone">
+                <i class="fas fa-phone-alt"></i> +91 9997265003
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast"></div>
+  <script src="js/checkout.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

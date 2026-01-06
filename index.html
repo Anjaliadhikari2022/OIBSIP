@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pizza Delivery</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/slider.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<header class="main-header">
+  <h1 class="logo">🍕 Pizza Delivery</h1>
+</header>
+
+
+<nav class="main-nav">
+  <ul>
+    <li id="nav-home"><a href="index.html">Home</a></li>
+    <li id="nav-menu"><a href="menu.html">Menu</a></li>
+    <li id="nav-cart">
+      <a href="cart.html" class="cart-link">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+        <span class="view-cart">View Cart</span>
+      </a>
+    </li>
+    <li id="nav-user" style="display:none;">
+      <span class="username"></span>
+    </li>
+    <li id="nav-login"><a href="login.html">Login</a></li>
+    <li id="nav-admin" style="display:none;"><a href="admin.html">Admin</a></li>
+    <li id="nav-logout" style="display:none;">
+      <a href="#" onclick="logout()" title="Logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h2>Hot & Fresh Pizza Delivered Fast 🍕</h2>
+        <p>Order your favourite pizzas, freshly baked and delivered to your doorstep.</p>
+        <a href="menu.html" class="hero-btn">Explore Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pizza Slider Section -->
+  <section class="pizza-slider-section">
+    <div class="container">
+      <h2 class="section-title">Our Signature Pizzas</h2>
+      <p class="section-subtitle">Handcrafted with the finest ingredients</p>
+      
+      <div id="pizza-slider" class="pizza-slider">
+        <div class="slider-container">
+          <!-- Pizza 1 -->
+          <div class="pizza-slide">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Margherita Pizza" class="pizza-image">
+            <div class="pizza-details">
+              <h3 class="pizza-title">Margherita</h3>
+              <p class="pizza-description">Classic pizza with tomato sauce, mozzarella, and fresh basil</p>
+              <div class="pizza-footer">
+                <span class="pizza-price">₹199</span>
+                <button class="add-to-cart">
+                  <i class="fas fa-plus"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pizza 2 -->
+          <div class="pizza-slide">
+            <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Pepperoni Pizza" class="pizza-image">
+            <div class="pizza-details">
+              <h3 class="pizza-title">Pepperoni</h3>
+              <p class="pizza-description">Spicy pepperoni with mozzarella and tomato sauce</p>
+              <div class="pizza-footer">
+                <span class="pizza-price">₹349</span>
+                <button class="add-to-cart">
+                  <i class="fas fa-plus"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pizza 3 -->
+          <div class="pizza-slide">
+            <img src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Veggie Supreme" class="pizza-image">
+            <div class="pizza-details">
+              <h3 class="pizza-title">Veggie Supreme</h3>
+              <p class="pizza-description">Loaded with fresh vegetables and mozzarella</p>
+              <div class="pizza-footer">
+                <span class="pizza-price">₹329</span>
+                <button class="add-to-cart">
+                  <i class="fas fa-plus"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pizza 4 -->
+          <div class="pizza-slide">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="BBQ Chicken" class="pizza-image">
+            <div class="pizza-details">
+              <h3 class="pizza-title">BBQ Chicken</h3>
+              <p class="pizza-description">Grilled chicken with BBQ sauce and red onions</p>
+              <div class="pizza-footer">
+                <span class="pizza-price">₹379</span>
+                <button class="add-to-cart">
+                  <i class="fas fa-plus"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slider Navigation Dots -->
+        <div class="slider-nav">
+          <div class="slider-dot active"></div>
+          <div class="slider-dot"></div>
+          <div class="slider-dot"></div>
+          <div class="slider-dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<main>
+  <section class="menu-section" id="menu">
+    <h2 class="section-title">Popular Pizzas</h2>
+
+    <div class="pizza-container">
+      <div class="menu-item">
+        <h3>Margherita Pizza</h3>
+        <p>Classic cheese pizza on a rich tomato sauce base.</p>
+        <span class="price">₹199</span>
+        <button class="add-btn" onclick="addToCart('Margherita Pizza',199)">
+  Add Item
+</button>
+      </div>
+
+      <div class="menu-item">
+        <h3>Farmhouse Pizza</h3>
+        <p>A hearty combination of fresh vegetables and mozzarella.</p>
+        <span class="price">₹249</span>
+        <button class="add-btn" onclick="addToCart('Farmhouse Pizza',299)">
+  Add Item
+</button>
+      </div>
+
+      <div class="menu-item">
+        <h3>Paneer Tikka Loaded</h3>
+        <p>Spicy loaded paneer with mouth-watering flavours.</p>
+        <span class="price">₹379</span>
+        <button class="add-btn" onclick="addToCart('Paneer Tikka Loaded',279)">
+  Add Item
+</button>
+      </div>
+
+      <div class="menu-item">
+        <h3>Fully Loaded Pizza</h3>
+        <p>A generous mix of veggies, cheese, and bold flavours.</p>
+        <span class="price">₹399</span>
+        <button class="add-btn" onclick="addToCart('Fully Loaded Pizza',299)">
+  Add Item
+</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="main-footer">
+  <p>&copy; 2025 Pizza Delivery. Crafted with ❤️</p>
+</footer>
+
+<div id="toast"></div>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/slider.js"></script>
+</body>
+</html>

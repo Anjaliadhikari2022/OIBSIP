@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu | Pizza Delivery</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<header class="top-header">
+  <h1>🍕 Pizza Delivery</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="menu.html" class="active">Menu</a>
+    <div class="cart-nav-item">
+      <a href="cart.html" class="cart-link">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+        <span class="view-cart-btn"><i class="fas fa-shopping-cart"></i> View Cart</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main class="menu-container">
+
+  <h2 class="menu-title">Our Menu</h2>
+
+  <!-- Classic Pizzas -->
+  <section class="menu-category">
+    <h3>Classic Pizzas</h3>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <h4>Margherita Pizza</h4>
+        <p>Classic cheese & tomato sauce</p>
+        <div class="menu-footer">
+  <span>₹199</span>
+
+  <div class="cart-actions" data-item="Margherita Pizza">
+    <button class="add-btn" onclick="addItem('Margherita Pizza', 199)">
+      Add
+    </button>
+
+    <div class="qty-controls hidden">
+      <button onclick="changeQty('Margherita Pizza', -1)">−</button>
+      <span class="qty">1</span>
+      <button onclick="changeQty('Margherita Pizza', 1)">+</button>
+    </div>
+  </div>
+</div>
+
+      </div>
+
+      <div class="menu-card">
+        <h4>Farmhouse Pizza</h4>
+        <p>Veggies, cheese & herbs</p>
+        <div class="menu-footer">
+  <span>₹219</span>
+
+  <div class="cart-actions" data-item="Farmhouse Pizza">
+    <button class="add-btn" onclick="addItem('Farmhouse Pizza', 219)">
+      Add
+    </button>
+
+    <div class="qty-controls hidden">
+      <button onclick="changeQty('Farmhouse Pizza', -1)">−</button>
+      <span class="qty">1</span>
+      <button onclick="changeQty('Farmhouse Pizza', 1)">+</button>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Veg Special -->
+  <section class="menu-category">
+    <h3>Veg Special</h3>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <h4>Paneer Tikka Loaded</h4>
+        <p>Spicy paneer with capsicum</p>
+        <div class="menu-footer">
+  <span>₹259</span>
+
+  <div class="cart-actions" data-item="Paneer Tikka Loaded">
+    <button class="add-btn" onclick="addItem('Paneer Tikka Loaded', 259)">
+      Add
+    </button>
+
+    <div class="qty-controls hidden">
+      <button onclick="changeQty('Paneer Tikka Loaded', -1)">−</button>
+      <span class="qty">1</span>
+      <button onclick="changeQty('Paneer Tikka Loaded', 1)">+</button>
+    </div>
+  </div>
+</div>
+      </div>
+
+      <div class="menu-card">
+        <h4>Veggie Supreme</h4>
+        <p>Olives, corn, onion & jalapenos</p>
+        <div class="menu-footer">
+  <span>₹179</span>
+
+  <div class="cart-actions" data-item="Veggie Supreme">
+    <button class="add-btn" onclick="addItem('Veggie Supreme', 179)">
+      Add
+    </button>
+
+    <div class="qty-controls hidden">
+      <button onclick="changeQty('Veggie Supreme', -1)">−</button>
+      <span class="qty">1</span>
+      <button onclick="changeQty('Veggie Supreme', 1)">+</button>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cheese Lovers -->
+  <section class="menu-category">
+    <h3>Cheese Lovers</h3>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <h4>Cheese Burst</h4>
+        <p>Extra cheese loaded delight</p>
+        <div class="menu-footer">
+  <span>₹319</span>
+
+  <div class="cart-actions" data-item="Cheese Burst">
+    <button class="add-btn" onclick="addItem('Cheese Burst', 319)">
+      Add
+    </button>
+
+    <div class="qty-controls hidden">
+      <button onclick="changeQty('Cheese Burst', -1)">−</button>
+      <span class="qty">1</span>
+      <button onclick="changeQty('Cheese Burst', 1)">+</button>
+    </div>
+  </div>
+</div>
+
+      </div>
+
+      <div class="menu-card">
+        <h4>Four Cheese Pizza</h4>
+        <p>Mozzarella, cheddar & parmesan</p>
+        <div class="menu-footer">
+  <span>₹349</span>
+
+  <div class="cart-actions" data-item="Four Cheese Pizza">
+    <button class="add-btn" onclick="addItem('Four Cheese Pizza', 349)">
+      Add
+    </button>
+
+    <div class="qty-controls hidden">
+      <button onclick="changeQty('Four Cheese Pizza', -1)">−</button>
+      <span class="qty">1</span>
+      <button onclick="changeQty('Four Cheese Pizza', 1)">+</button>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 Pizza Delivery</p>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    updateCartCount();
+    updateButtons();
+  });
+</script>
+
+</body>
+</html>
