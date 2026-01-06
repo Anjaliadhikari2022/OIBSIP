@@ -1,4 +1,4 @@
-/* Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@ body {
   line-height: 1.6;
 }
 
-/* HEADER */
+
 header {
   background-color: #d62828;
   color: white;
@@ -20,7 +20,7 @@ header {
   text-align: center;
 }
 
-/* NAVBAR */
+
 nav {
   background-color: #fff;
   padding: 10px 0;
@@ -43,11 +43,8 @@ nav a:hover {
   color: #d62828;
 }
 
-/* =================================
-   CHECKOUT PAGE STYLES
-   ================================= */
 
-/* Base Container & Layout */
+
 .checkout-page {
   background-color: #f8f9fa;
   min-height: calc(100vh - 160px);
@@ -157,7 +154,7 @@ nav a:hover {
   transition: all 0.3s ease;
 }
 
-/* Main Checkout Layout */
+
 .checkout-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -169,7 +166,7 @@ nav a:hover {
   align-items: flex-start;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 992px) {
   .checkout-grid {
     grid-template-columns: 1fr;
@@ -181,7 +178,7 @@ nav a:hover {
   }
 }
 
-/* Checkout Form */
+
 .checkout-form-container {
   background: white;
   border-radius: 12px;
@@ -245,7 +242,7 @@ nav a:hover {
   background-color: #fff;
 }
 
-/* Form group with icon */
+
 .form-group.with-icon {
   position: relative;
 }
@@ -268,7 +265,7 @@ nav a:hover {
   color: #e74c3c;
 }
 
-/* Form row for side-by-side fields */
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -284,7 +281,7 @@ nav a:hover {
   }
 }
 
-/* Payment Options */
+
 .section-label {
   display: flex;
   align-items: center;
@@ -392,7 +389,7 @@ nav a:hover {
   box-shadow: 0 4px 12px rgba(231, 76, 60, 0.1);
 }
 
-/* Form Actions */
+
 .form-actions {
   display: flex;
   gap: 1rem;
@@ -446,7 +443,7 @@ nav a:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Order Summary */
+
 .order-summary-container {
   position: relative;
 }
@@ -556,7 +553,7 @@ nav a:hover {
   font-size: 1.1rem;
 }
 
-/* Order Totals */
+
 .order-totals {
   margin-top: 1.5rem;
   padding-top: 1.5rem;
@@ -618,7 +615,7 @@ nav a:hover {
   color: #95a5a6;
 }
 
-/* Customer Support */
+
 .customer-support {
   background: white;
   border-radius: 12px;
@@ -659,7 +656,7 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Responsive Adjustments */
+
 @media (max-width: 992px) {
   .checkout-layout {
     grid-template-columns: 1fr;
@@ -733,7 +730,7 @@ nav a:hover {
   }
 }
 
-/* CART PAGE */
+
 .cart-section {
   max-width: 1200px;
   margin: 0 auto;
@@ -1060,7 +1057,7 @@ nav a:hover {
   transform: translateY(0);
 }
 
-/* ================= TOAST NOTIFICATION ================= */
+
 #toast {
   visibility: hidden;
   min-width: 280px;
@@ -1108,7 +1105,7 @@ nav a:hover {
   font-size: 1.25rem;
 }
 
-/* MAIN SECTIONS */
+
 main {
   padding: 30px;
 }
@@ -1122,7 +1119,7 @@ section h2 {
   color: #d62828;
 }
 
-/* FOOTER */
+
 footer {
   background-color: #2f2f2f;
   color: white;
@@ -1130,7 +1127,7 @@ footer {
   padding: 15px;
 }
 
-/* MENU ITEMS */
+
 .menu-section {
   padding: 20px 0;
 }
@@ -1182,11 +1179,11 @@ footer {
   transform: scale(1.03);
 }
 
-/* LOGIN SECTION */
+
 .login-section {
-  max-width: 400px; /* keeps the login card smaller */
+  max-width: 400px; 
   margin: 0 auto;
-  padding: 0; /* remove extra padding, handled in fields */
+  padding: 0; 
 }
 
 .login-form {
@@ -1196,7 +1193,7 @@ footer {
   margin-top: 20px;
 }
 
-/* Unified input card styling (like menu-item) */
+
 .login-field {
   background-color: #ffffff;
   border-radius: 10px;
@@ -1206,7 +1203,7 @@ footer {
   align-items: center;
   gap: 10px;
   transition: transform 0.2s ease;
-  width: 100%; /* make it fit the login-section */
+  width: 100%; 
 }
 .login-field:hover {
   transform: scale(1.02);
@@ -1221,7 +1218,7 @@ footer {
   background: transparent;
 }
 
-/* Password toggle icon inside password-section */
+
 .password-section i {
   cursor: pointer;
   color: #777;
@@ -1231,7 +1228,7 @@ footer {
   color: #c0392b;
 }
 
-/* Submit button */
+
 .login-form button {
   background-color: #c0392b;
   color: #fff;
@@ -1247,7 +1244,7 @@ footer {
 }
 
 
-/* ADMIN PANEL */
+
 .admin-section {
   max-width: 1200px;
   margin: 0 auto;
@@ -1346,7 +1343,7 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* MEDIA QUERY */
+
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -1358,7 +1355,7 @@ footer {
     margin: 8px 0;
   }
 }
-/* HEADER */
+
 .main-header {
   background: #d62828;
   color: white;
@@ -1370,7 +1367,7 @@ footer {
   font-size: 26px;
 }
 
-/* NAV */
+
 .main-nav {
   background: #fff;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -1393,7 +1390,7 @@ footer {
   font-weight: 500;
 }
 
-/* HERO */
+
 .hero {
   background: linear-gradient(135deg, #d62828, #f77f00);
   height: 380px;
@@ -1401,7 +1398,7 @@ footer {
 }
 
 .hero-overlay {
-  background: rgba(0, 0, 0, 0.35); /* dark overlay */
+  background: rgba(0, 0, 0, 0.35);
   height: 100%;
   display: flex;
   align-items: center;
@@ -1442,7 +1439,7 @@ footer {
 }
 
 
-/* MENU */
+
 .section-title {
   text-align: center;
   margin-bottom: 30px;
@@ -1492,7 +1489,7 @@ footer {
   cursor: pointer;
 }
 
-/* FOOTER */
+
 .main-footer {
   background: #222;
   color: #aaa;
@@ -1508,7 +1505,7 @@ footer {
 .add-btn:disabled {
   opacity: 0.85;
 }
-/* Cart card layout */
+
 .menu-item {
   padding: 20px;
   border-radius: 14px;
@@ -1517,7 +1514,7 @@ footer {
   text-align: center;
 }
 
-/* Quantity row */
+
 .qty-row {
   display: flex;
   justify-content: center;
@@ -1526,7 +1523,7 @@ footer {
   margin: 12px 0;
 }
 
-/* + / - buttons */
+
 .qty-btn {
   width: 34px;
   height: 34px;
@@ -1542,13 +1539,13 @@ footer {
   background: #c92d3a;
 }
 
-/* Quantity number */
+
 .qty {
   font-size: 16px;
   font-weight: 600;
 }
 
-/* Remove button */
+
 .remove-btn {
   background: transparent;
   border: none;
@@ -1789,5 +1786,5 @@ footer {
 .toast.show {
   visibility: visible;
   opacity: 1;
-  bottom: 50px; /* slides up a bit */
+  bottom: 50px; 
 }
